@@ -1,0 +1,18 @@
+package college;
+import java.util.*;
+
+public class Department {
+	String name;
+    List<Student> students;
+	
+public Department(String name) {
+	this.name=name;
+	this.students = new ArrayList<>();
+}
+
+public List<Student> getStudents() 
+{
+    return students;
+          }
+
+}

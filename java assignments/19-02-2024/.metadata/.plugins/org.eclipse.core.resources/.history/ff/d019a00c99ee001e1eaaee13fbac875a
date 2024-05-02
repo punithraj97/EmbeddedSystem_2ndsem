@@ -1,0 +1,69 @@
+package threads;
+import java.util.Random;
+
+public class Generator {
+	
+	    private int number;
+	    private boolean available = false;
+
+	    synchronized int take() {
+	        while (!available) {
+	            try {
+	                wait();
+	            } catch (InterruptedException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        available = false;
+	        notifyAll();
+	        return number;
+	    }
+
+	    synchronized void put(int number) {
+	        while (available) {
+	            try {
+	                wait();
+	            } catch (InterruptedException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        this.number = number;
+	        available = true;
+	        notifyAll();
+	    }
+	}
+
+	
+
+	class Consumer implements Runnable {
+	    private Generator generator;
+
+	    Consumer(Generator generator) {
+	        this.generator = generator;
+	    }
+
+	    @Override
+	    public void run() {
+	        for (int i = 1; i <= 9; i++) {
+	            int number = generator.take();
+	            System.out.println("Consumer consumed: " + number);
+	        }
+	    }
+	}
+
+	public class Main {
+	    public static void main(String[] args) {
+	        NumberGenerator generator = new NumberGenerator();
+	        Producer producer = new Producer(generator);
+	        Consumer consumer = new Consumer(generator);
+
+	        Thread producerThread = new Thread(producer);
+	        Thread consumerThread = new Thread(consumer);
+
+	        producerThread.start();
+	        consumerThread.start();
+	    }
+	}
+
+
+}

@@ -1,0 +1,15 @@
+package threads;
+
+public class Testclass {
+	    public static void main(String[] args) {
+	        Generator generator = new NumberGenerator();
+	        Producer producer = new Producer(generator);
+	        Consumer consumer = new Consumer(generator);
+
+	        Thread producerThread = new Thread(producer);
+	        Thread consumerThread = new Thread(consumer);
+
+	        producerThread.start();
+	        consumerThread.start();
+	    }
+}

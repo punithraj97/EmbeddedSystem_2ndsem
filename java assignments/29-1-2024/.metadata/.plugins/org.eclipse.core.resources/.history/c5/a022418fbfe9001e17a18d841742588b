@@ -1,0 +1,8 @@
+package college;
+
+public class Department {
+	
+	String Department;
+	Student stu[];
+
+}

@@ -1,0 +1,20 @@
+package college;
+
+public class Department {
+	String name;
+	Student stu[];
+	
+public Department(String name) {
+	this.name=name;
+}
+
+int getstudentscount() {
+	
+	int count=0;
+	//for(Student value:stu)
+	   count++;
+	
+	return count;
+}
+
+}

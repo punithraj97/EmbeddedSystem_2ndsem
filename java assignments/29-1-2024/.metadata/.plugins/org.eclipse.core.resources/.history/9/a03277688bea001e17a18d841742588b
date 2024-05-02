@@ -1,0 +1,20 @@
+package college;
+import java.util.*;
+
+public class Institute {
+	
+	String name;
+	List<Department> departments;
+	
+	public Institute(String name)
+	{
+		this.name=name;
+		this.departments = new ArrayList<>();
+	}
+	
+	int totalstudents(Department dep)
+	{
+		return dep.getstudentscount();
+	}
+
+}

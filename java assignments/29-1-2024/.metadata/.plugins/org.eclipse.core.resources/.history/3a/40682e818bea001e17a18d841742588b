@@ -1,0 +1,15 @@
+package college;
+
+public class TestCollege {
+
+	public static void main(String[] args) {
+	  
+		Institute in1=new Institute("MSIS");
+		
+		in1.dep[0]=new Department("Embedded Systems");
+
+		
+		    System.out.println("my name is punith");
+	}
+
+}

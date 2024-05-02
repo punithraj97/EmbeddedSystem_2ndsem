@@ -1,0 +1,18 @@
+package college;
+
+public class Department {
+	String Department;
+	Student stu[];
+	
+public Department() {}
+
+int getstudentscount() {
+	
+	int count=0;
+	//for(Student value:stu)
+	   count++;
+	
+	return count;
+}
+
+}

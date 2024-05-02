@@ -1,0 +1,105 @@
+package lambda;
+
+
+interface Sample
+{
+	int add(int a);
+}
+public class LambdaPrograma {
+
+	public static void main(String[] args) {
+		
+		
+	Sample s=(n)->fact(n);	
+	
+	System.out.println("The factorial of given number is "+s.add(5));
+	Sample s1=(n)->prime(n);
+	
+	int prime=s1.add(5);
+		if(prime==1)
+			System.out.println("The number is not prime");
+		else
+			System.out.println("The number is prime");
+		
+		Sample s2=(n)->printpattern(n);	
+		 s2.add(4);
+		 
+		 Sample s3=(n)->charrdigit(n);
+		 s3.add(90);
+		 
+		 int leap=s4.add(2024);
+			if(leap==1)
+				System.out.println("The year is a leap year");
+			else
+				System.out.println("The year is a not leap year");
+		 
+
+	}
+	public static int fact(int num)
+	{
+		int sum=1;
+		if(num==0 || num<0)
+			return 0;
+		
+		while(num!=0)
+		{
+			sum *=num;
+			num--;
+		}
+		return sum;
+			
+	}
+	
+	public static int prime(int num)
+	{
+		for(int i=2;i<=num/2;i++)
+		{
+			if(num%i==0)
+				return 1;
+		}
+		return 0;
+	}
+	
+	
+	public static int printpattern(int num)
+	{
+		for(int i=1;i<=num;i++)
+		{
+			for(int j=1;j<=i;j++)
+			{
+		    System.out.print(i);
+		    System.out.print(" ");
+			}
+			 System.out.println();
+		}
+		
+		return 1;
+	}
+	
+	public static int charrdigit(int num)
+	{
+		 if (Character.isLetter(num)) 
+             System.out.println(num + " is a letter.");
+   
+         else if(Character.isDigit(num)) 
+             System.out.println(num + " is a digit.");
+         
+         else 
+             System.out.println(num + " is a may be special character or other number");
+         
+		 return 1;
+	}
+	
+	 public static int isLeapYear(int year) 
+	 {
+	        if((year % 4 == 0) && (year % 100 != 0 || year % 400 == 0))
+	        return 1; 
+	        
+	        else
+	        	return 0;
+	    }
+	
+	
+	
+
+}

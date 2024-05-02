@@ -1,0 +1,19 @@
+package threads;
+
+class Consumer implements Runnable {
+    private Generator generator;
+
+    Consumer(Generator generator) {
+        this.generator = generator;
+    }
+
+    synchronized public void run() {
+    	 int number;
+    	 while(number!=9)
+    	 {
+        
+           number = generator.take();
+            System.out.println("Consumer consumed: " + number);
+    	 }
+    }
+}

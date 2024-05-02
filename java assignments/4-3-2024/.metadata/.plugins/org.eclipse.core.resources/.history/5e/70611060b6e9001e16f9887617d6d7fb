@@ -1,0 +1,25 @@
+package lambda;
+
+
+interface numbersort
+{
+	public void numsort(Thread t,int arr[]);
+}
+public class TestThreads {
+
+	
+	private static int[] numbers = {9, 5, 7, 2, 4, 6, 1, 8, 3, 10};
+    private static char[] characters = {'d', 'b', 'a', 'e', 'c'};
+    
+	public static void main(String[] args) {
+		
+		MultipleThreads m=new MultipleThreads();
+		MultipleThreads1 m1=new MultipleThreads1();
+		
+		
+		
+		
+
+	}
+
+}

@@ -1,0 +1,18 @@
+package college;
+
+public class TestCollege {
+
+	public static void main(String[] args) {
+	  
+		Student student1 = new Student(1, "punith", "ES");
+        Student student2 = new Student(2, "Deepak", "ES");
+        Student student3 = new Student(3, "varun", "VLSI");
+        Student student4 = new Student(4, "sudeep", "VLSI");
+        
+        Student student5 = new Student(1, "punith", "ES");
+        Student student6 = new Student(2, "Deepak", "ES");
+        Student student7 = new Student(3, "varun", "VLSI");
+        Student student8 = new Student(4, "sudeep", "VLSI");
+	}
+
+}

@@ -1,0 +1,24 @@
+package lambda;
+
+import java.util.*;
+
+
+public class MultipleThreads1 extends Thread implements Runnable {
+	
+	static int arr[];
+	
+	public MultipleThreads1()
+	{
+		
+	}
+	
+	public static void sort(Thread t,int arr1[])
+	{
+		arr=arr1;
+		t.start();
+	}
+	
+	public void run() {
+		
+		Arrays.sort(arr);
+	}}

@@ -1,0 +1,18 @@
+package lambda;
+
+import java.util.*;
+
+
+public class MultipleThreads extends Thread implements Runnable {
+	
+	public MultipleThreads()
+	{
+		
+	}
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

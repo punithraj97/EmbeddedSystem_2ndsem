@@ -1,0 +1,18 @@
+package college;
+
+public class Institute {
+	
+	String name;
+	Department dep[];
+	
+	public Institute(String name)
+	{
+		this.name=name;
+	}
+	
+	int totalstudents(Department dep)
+	{
+		return dep.getstudentscount();
+	}
+
+}

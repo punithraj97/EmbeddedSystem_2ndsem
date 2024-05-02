@@ -1,0 +1,11 @@
+package college;
+
+public class Institute {
+	
+	String institute;
+	Department dep[];
+	
+	public Institute()
+	{}
+
+}

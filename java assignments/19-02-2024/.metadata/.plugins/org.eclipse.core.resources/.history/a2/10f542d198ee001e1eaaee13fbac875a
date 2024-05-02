@@ -1,0 +1,87 @@
+package threads;
+import java.util.Random;
+
+public class Generator {
+	
+
+	class Generator {
+	    private int number;
+	    private boolean available = false;
+
+	    synchronized int take() {
+	        while (!available) {
+	            try {
+	                wait();
+	            } catch (InterruptedException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        available = false;
+	        notifyAll();
+	        return number;
+	    }
+
+	    synchronized void put(int number) {
+	        while (available) {
+	            try {
+	                wait();
+	            } catch (InterruptedException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        this.number = number;
+	        available = true;
+	        notifyAll();
+	    }
+	}
+
+	class Producer implements Runnable {
+	    private NumberGenerator generator;
+
+	    Producer(NumberGenerator generator) {
+	        this.generator = generator;
+	    }
+
+	    @Override
+	    public void run() {
+	        Random random = new Random();
+	        for (int i = 1; i <= 9; i++) {
+	            int randomNumber = random.nextInt(10) + 1;
+	            generator.put(randomNumber);
+	            System.out.println("Producer generated: " + randomNumber);
+	        }
+	    }
+	}
+
+	class Consumer implements Runnable {
+	    private NumberGenerator generator;
+
+	    Consumer(NumberGenerator generator) {
+	        this.generator = generator;
+	    }
+
+	    @Override
+	    public void run() {
+	        for (int i = 1; i <= 9; i++) {
+	            int number = generator.take();
+	            System.out.println("Consumer consumed: " + number);
+	        }
+	    }
+	}
+
+	public class Main {
+	    public static void main(String[] args) {
+	        NumberGenerator generator = new NumberGenerator();
+	        Producer producer = new Producer(generator);
+	        Consumer consumer = new Consumer(generator);
+
+	        Thread producerThread = new Thread(producer);
+	        Thread consumerThread = new Thread(consumer);
+
+	        producerThread.start();
+	        consumerThread.start();
+	    }
+	}
+
+
+}

@@ -1,0 +1,17 @@
+package threads;
+
+class Consumer implements Runnable {
+    private Generator generator;
+
+    Consumer(Generator generator) {
+        this.generator = generator;
+    }
+
+    @Override
+    public void run() {
+        for (int i = 1; i <= 9; i++) {
+            int number = generator.take();
+            System.out.println("Consumer consumed: " + number);
+        }
+    }
+}

@@ -1,0 +1,11 @@
+package lambda;
+
+public class MultiThreads1 extends ThreadDeath implements Runnable {
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+
+	}
+
+}
